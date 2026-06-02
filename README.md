@@ -65,12 +65,13 @@ uv run python main.py predict <model_path> <historic_data.csv> <future_data.csv>
 
 ## Evaluating through CHAP
 
-From a chap-core checkout, using a weekly dataset:
+`--model-name` can point straight at the GitHub repo; CHAP clones and runs it.
+From a chap-core checkout (using a weekly dataset):
 
 ```bash
 uv run chap eval \
-    --model-name /path/to/auto_regressive_weekly \
-    --dataset-csv <weekly_dataset.csv> \
+    --model-name https://github.com/mortenoh/auto_regressive_weekly \
+    --dataset-csv example_data/nicaragua_weekly_data.csv \
     --output-file /tmp/chap/ar_weekly_eval.nc \
     --backtest-params.n-splits 2 \
     --backtest-params.n-periods 1
